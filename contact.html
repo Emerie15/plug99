@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/df51463c06.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #444;
+            margin: 20px 0;
+        }
+        .contact-info {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .contact-info p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .contact-info i {
+            margin-right: 10px;
+            color: #000; /* Black color for icons */
+        }
+        form {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        form button {
+            background: #000; /* Black color for button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        form button:hover {
+            background: #333; /* Darker black for hover effect */
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .contact-info {
+                padding: 15px;
+            }
+            form {
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            .contact-info p {
+                font-size: 14px;
+            }
+            form label, form input, form textarea, form button {
+                font-size: 14px;
+            }
+            form input, form textarea {
+                padding: 8px;
+            }
+            form button {
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    <h2>Visit one of our offices today or contact us</h2>
+    
+    <div class="contact-info">
+        <p><i class="fa-solid fa-phone-flip"></i> Phone: +2347078632360</p>
+        <p><i class="fa-solid fa-envelope"></i> Email: obinnaekeh2014@gmail.com</p>
+        <p><i class="fa-solid fa-map"></i> Address: Alaba Market, Naze Owerri, Imo State</p>
+        <p><i class="fa-solid fa-clock"></i> All weekdays Mon-Sat</p>
+    </div>
+
+    <form action="mailto:chiemeriekeh568@gmail.com" method="post" enctype="text/plain">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Input Email" required>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Input message" required></textarea>
+        
+        <button type="submit">Send</button>
+    </form>
+</body>
+</html>
