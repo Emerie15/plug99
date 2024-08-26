@@ -25,10 +25,10 @@ header nav ul {
     margin: 0;
     display: flex; /* Ensure horizontal layout */
     justify-content: center; /* Center horizontally */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 header nav ul li {
-    display: inline;
     margin: 0 10px; /* Space between menu items */
 }
 
@@ -107,9 +107,13 @@ header nav ul li a:hover {
     margin: 1rem;
     padding: 1rem;
     border-radius: 5px;
-    display: inline-block;
     width: calc(33.33% - 2rem);
     box-sizing: border-box;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
 }
 
 .service-card .card-head {
@@ -120,6 +124,7 @@ header nav ul li a:hover {
 .arrivals {
     padding: 2rem;
     background: #fff;
+    overflow: hidden;
 }
 
 .arrivals h3 {
@@ -132,6 +137,7 @@ header nav ul li a:hover {
     padding: 0;
     justify-content: space-around;
     margin-bottom: 1rem;
+    flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
 }
 
 .grid ul .tab {
@@ -193,7 +199,7 @@ header nav ul li a:hover {
     padding: 1rem;
     max-width: 200px;
     text-align: center;
-    margin: 0.5rem; /* Added margin for spacing */
+    margin: 0.5rem;
 }
 
 .reason i {
@@ -227,21 +233,24 @@ footer .social-media a i {
 }
 
 /* Media Queries */
+
+/* Large Tablets and Desktops */
 @media (max-width: 1024px) {
     .service-card {
         width: calc(50% - 2rem);
     }
 }
 
+/* Small Tablets and Large Phones */
 @media (max-width: 768px) {
     header nav ul {
-        flex-direction: row; /* Ensure horizontal layout on smaller screens */
+        flex-direction: row;
     }
 
     header nav ul li {
-        margin: 0 5px; /* Adjust margin for smaller screens */
+        margin: 0 5px;
     }
-    
+
     .hero {
         height: 70vh;
         padding: 1rem;
@@ -261,10 +270,15 @@ footer .social-media a i {
 
     .reason {
         max-width: 150px;
-        margin: 0.5rem; /* Added margin for spacing */
+        margin: 0.5rem;
+    }
+
+    .items {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 }
 
+/* Mobile Devices */
 @media (max-width: 480px) {
     .hero {
         height: 60vh;
@@ -284,6 +298,10 @@ footer .social-media a i {
         font-size: 0.9rem;
     }
 
+    .arrivals {
+        padding: 20px;
+    }
+
     .items {
         grid-template-columns: 1fr;
         gap: 10px;
@@ -291,11 +309,45 @@ footer .social-media a i {
 
     .reason {
         max-width: 150px;
-        margin: 0.5rem; /* Added margin for spacing */
+        margin: 0.5rem;
     }
 
     #what {
         font-size: 1.5rem;
+    }
+
+    .service-card {
+        width: 100%;
+    }
+
+    header nav ul li {
+        margin: 0 5px;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 200px) {
+    .arrivals {
+        padding: 10px;
+        height: fit-content;
+        width: fit-content;
+    }
+
+    .hero {
+        height: 50vh;
+    }
+
+    .hero-content h1 {
+        font-size: 1rem;
+    }
+
+    .hero-content h2 {
+        font-size: 0.8rem;
+    }
+
+    .hero .btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
     }
 }
 
@@ -306,7 +358,417 @@ footer .social-media a i {
 
 /* Enhance the hero background with a parallax effect */
 .hero {
-    background-attachment: fixed; /* Optional: can add a fixed background effect */
+    background-attachment: fixed; /* Optional: fixed background effect */
+}
+
+/* Ensure elements are styled to fit animations */
+.items img {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header .logo {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Ensure horizontal layout */
+    justify-content: center; /* Center horizontally */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+header nav ul li {
+    margin: 0 10px; /* Space between menu items */
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px; /* Padding for clickable area */
+    display: inline-block; /* Ensure padding applies */
+    transition: background-color 0.3s ease, border-radius 0.3s ease; /* Smooth transition */
+}
+
+header nav ul li a:hover {
+    background-color: rgb(128, 128, 128);
+    border-radius: 3px;
+}
+
+/* Hero section */
+.hero {
+    background: url("images/pexels-oguzhan-oncu-349382156-14168781.jpg") no-repeat center center/cover;
+    color: #fff;
+    height: 80vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1rem;
+    background-attachment: fixed; /* Optional: fixed background effect */
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-content h2 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.hero-content p {
+    margin-top: 20px;
+}
+
+.hero .btn {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    margin: 0 10px;
+}
+
+.hero .btn:hover {
+    background: #555;
+}
+
+/* Services section */
+#what {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2rem;
+    color: #333;
+}
+
+.services {
+    padding: 2rem;
+    background: #fff;
+    text-align: center;
+}
+
+.service-card {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    width: calc(33.33% - 2rem);
+    box-sizing: border-box;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+.service-card .card-head {
+    font-weight: bold;
+}
+
+/* Arrivals section */
+.arrivals {
+    padding: 2rem;
+    background: #fff;
+    overflow: hidden;
+}
+
+.arrivals h3 {
+    text-align: center;
+}
+
+.grid ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+}
+
+.grid ul .tab {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.grid ul .tab.active {
+    background-color: #333;
+    color: white;
+}
+
+.grid ul .tab:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.items img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.items img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Why Choose section */
+.whychoose {
+    color: black;
+    padding: 2rem;
+    text-align: center;
+}
+
+.reasons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.reason {
+    flex: 1;
+    padding: 1rem;
+    max-width: 200px;
+    text-align: center;
+    margin: 0.5rem;
+}
+
+.reason i {
+    font-size: 2rem;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #111;  /* Dark background */
+    color: #fff;  /* White text */
+    padding: 20px 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h4 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #00b894;  /* Green color for headers */
+}
+
+.footer-section p,
+.footer-section a {
+    font-size: 1em;
+    color: #b2bec3;
+    margin: 5px 0;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: #00b894;
+    text-decoration: underline;
+}
+
+.footer-section .social-media a {
+    font-size: 1.5em;
+    margin-right: 15px;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.footer-section .social-media a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 0.9em;
+    color:white;
+}
+
+
+/* Media Queries */
+
+/* Large Tablets and Desktops */
+@media (max-width: 1024px) {
+    .service-card {
+        width: calc(50% - 2rem);
+    }
+}
+
+/* Small Tablets and Large Phones */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: row;
+    }
+
+    header nav ul li {
+        margin: 0 5px;
+    }
+
+    .hero {
+        height: 70vh;
+        padding: 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .service-card {
+        width: calc(100% - 2rem);
+    }
+
+    .reason {
+        max-width: 150px;
+        margin: 0.5rem;
+    }
+
+    .items {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+    .hero {
+        height: 60vh;
+        padding: 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1rem;
+    }
+
+    .hero .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .arrivals {
+        padding: 20px;
+    }
+
+    .items {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .reason {
+        max-width: 150px;
+        margin: 0.5rem;
+    }
+
+    #what {
+        font-size: 1.5rem;
+    }
+
+    .service-card {
+        width: 100%;
+    }
+
+    header nav ul li {
+        margin: 0 5px;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 200px) {
+    .arrivals {
+        padding: 10px;
+        height: fit-content;
+        width: fit-content;
+    }
+
+    .hero {
+        height: 50vh;
+    }
+
+    .hero-content h1 {
+        font-size: 1rem;
+    }
+
+    .hero-content h2 {
+        font-size: 0.8rem;
+    }
+
+    .hero .btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Add transitions for smoother effects */
+.service-card, .items img, .reason {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Enhance the hero background with a parallax effect */
+.hero {
+    background-attachment: fixed; /* Optional: fixed background effect */
 }
 
 /* Ensure elements are styled to fit animations */
